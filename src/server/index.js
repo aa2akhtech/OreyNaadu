@@ -2,6 +2,7 @@ const Express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const testsController = require("./controllers/tests");
+const initArticlesRoutes = require("./routes/articles");
 
 const app = new Express();
 const port = process.env.PORT || 80;
@@ -18,6 +19,7 @@ const renderHome = (req, res) => {
 app.get("/", renderHome);
 
 app.get("/api/test", testsController.testFunction);
+initArticlesRoutes(app);
 
 app.listen(port, (error) => {
   if (error) {
