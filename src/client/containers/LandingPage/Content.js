@@ -167,7 +167,7 @@ const Content = () => (
 }
 
         <button>
-          <a href="#">Know More</a>
+          <a href="#">Know More edited</a>
         </button>
 
         <div className="current-news-head">
