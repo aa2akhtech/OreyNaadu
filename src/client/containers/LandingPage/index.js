@@ -12,7 +12,7 @@ const LandingPage = () => (
   <div id="home">
   <Header />
   <Content />
-  
+  <contactus/>
   <updatesection />
   <app />
   <Footer />
