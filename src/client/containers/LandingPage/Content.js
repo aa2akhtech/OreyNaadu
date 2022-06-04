@@ -1,173 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from 'react';
-import Alert from '../Alert';
+import React from "react";
 // import PropTypes from 'prop-types'
 
 const Content = () => (
   <React.Fragment>
-    <header>
-      <div className="navigation-container">
-        <div className="top-head">
-          <div className="web-name">
-            <img src="images/logo.png" alt="oreynaadu" />
-            <span className="brand-name">
-              <h1>OREY NAADU</h1>
-            </span>
-          </div>
-
-          <div className="ham-btn">
-            <span>
-              <i className="fas fa-bars"></i>
-            </span>
-          </div>
-
-          <div className="times-btn">
-            <span>
-              <i className="fas fa-times"></i>
-            </span>
-          </div>
-        </div>
-
-        <div className="nav-bar" id="nav-bar">
-          <nav>
-            <ul>
-              <li>
-                <a href="#">home</a>
-              </li>
-              <li>
-                <a href="#">current affairs</a>
-              </li>
-              <li>
-                <a href="#">archive</a>
-              </li>
-              <li>
-                <a href="#">featured</a>
-              </li>
-              <li>
-                <a href="#">broadcast</a>
-              </li>
-              <li>
-                <a href="#">category</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        <div className="social-icons">
-          <ul>
-            <li>
-              <a href="https://www.facebook.com/OreyNaadu" target="blank">
-                <i className="fab fa-facebook"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/Oreynaadu_TN" target="blank">
-                <i className="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.youtube.com/c/OreyNaadu"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i className="fab fa-youtube"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" target="blank">
-                <i className="fab fa-instagram"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </header>
+    
     <section className="banner">
       <div className="banner-main-content">
         <h2>GET THE INDIA's LATEST BREAKING NEWS</h2>
         <h3>India's Leading Breaking News Portal</h3>
-  export default function Upload() {
-    const [fileInputState, setFileInputState] = useState('');
-    const [previewSource, setPreviewSource] = useState('');
-    const [selectedFile, setSelectedFile] = useState();
-    const [successMsg, setSuccessMsg] = useState('');
-    const [errMsg, setErrMsg] = useState('');
-    const handleFileInputChange = (e) => {
-        const file = e.target.files[0];
-        previewFile(file);
-        setSelectedFile(file);
-        setFileInputState(e.target.value);
-    };
-
-    const previewFile = (file) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onloadend = () => {
-            setPreviewSource(reader.result);
-        };
-    };
-
-    const handleSubmitFile = (e) => {
-        e.preventDefault();
-        if (!selectedFile) return;
-        const reader = new FileReader();
-        reader.readAsDataURL(selectedFile);
-        reader.onloadend = () => {
-            uploadImage(reader.result);
-        };
-        reader.onerror = () => {
-            console.error('AHHHHHHHH!!');
-            setErrMsg('something went wrong!');
-        };
-    };
-
-    const uploadImage = async (base64EncodedImage) => {
-        try {
-            await fetch('/api/upload', {
-                method: 'POST',
-                body: JSON.stringify({ data: base64EncodedImage }),
-                headers: { 'Content-Type': 'application/json' },
-            });
-            setFileInputState('');
-            setPreviewSource('');
-            setSuccessMsg('Image uploaded successfully');
-        } catch (err) {
-            console.error(err);
-            setErrMsg('Something went wrong!');
-        }
-    };
-    return (
-        <div>
-            <h1 className="title">Upload an Image</h1>
-            <Alert msg={errMsg} type="danger" />
-            <Alert msg={successMsg} type="success" />
-            <form onSubmit={handleSubmitFile} className="form">
-                <input
-                    id="fileInput"
-                    type="file"
-                    name="image"
-                    onChange={handleFileInputChange}
-                    value={fileInputState}
-                    className="form-input"
-                />
-                <button className="btn" type="submit">
-                    Submit
-                </button>
-            </form>
-            {previewSource && (
-                <img
-                    src={previewSource}
-                    alt="chosen"
-                    style={{ height: '300px' }}
-                />
-            )}
-        </div>
-    );
-}
 
         <button>
-          <a href="#">Know More edited</a>
+          <a href="#">Know More</a>
         </button>
 
         <div className="current-news-head">
@@ -458,33 +302,6 @@ const Content = () => (
         </article>
       </section>
     </main>
-    <footer>
-      <div className="footer-container">
-        <div className="footer-left">
-          <h2>ஒரே நாடு | OREY NAADU</h2>
-          <p>
-            ஒரே நாடு - தமிழக பாரதிய ஜனதா கட்சியின் அதிகாரப்பூர்வ பத்திரிக்கை
-          </p>
-        </div>
-
-        <div className="footer-right">
-          <h2>Newsletter</h2>
-          <p>
-            Get the latest news, hot topic notifications, and exclusive gifts
-            conveniently in your inbox!
-          </p>
-
-          <div>
-            <input type="text" placeholder="Email Address" />
-            <i className="fas fa-envelope"></i>
-          </div>
-        </div>
-      </div>
-
-      <p>
-        created by&nbsp;<b>LOGIN</b>
-      </p>
-    </footer>
   </React.Fragment>
 );
 

@@ -1,10 +1,23 @@
+import Header from "./Header";
 import Content from "./Content";
+//import contactus from "./contactus";
+//import updatesection from "./updatesection";
+import app from "./app";
+import Footer from "./footer";
 import React from "react";
 import PropTypes from "prop-types";
 import "./index.css";
 
 const LandingPage = () => (
-    <Content />
+  <div id="home">
+  <Header />
+  <Content />
+  
+  <updatesection />
+  <app />
+  <Footer />
+</div>
+  
 );
 
 LandingPage.propTypes = {
@@ -14,5 +27,6 @@ LandingPage.propTypes = {
 LandingPage.defaultProps = {
   children: null,
 };
+
 
 export default LandingPage;
